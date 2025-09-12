@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=ApertureAnimation
+Description=Aperture logo looped animation
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/aperture
+ScriptFile=/usr/share/plymouth/themes/aperture/aperture.script
