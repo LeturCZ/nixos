@@ -55,6 +55,16 @@ in {
           ];
           type = "sendreceive";
         };
+        Music = {
+          enable = true;
+          id = "ukaqx-rgku7";
+          path = "~/Music/";
+          devices = [
+            "LeturDesktop"
+            "Redmi Note 10"
+          ];
+          type = "receiveonly";
+        };
       };
       options = {
         relaysEnabled = false;
