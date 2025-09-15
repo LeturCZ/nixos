@@ -38,6 +38,9 @@ in {
     # programs.home-manager.enable = true;
   };
   services = {
+    # enable removable drive automount
+    udiskie.enable = true;
+
     syncthing = {
       enable = true;
       settings = {

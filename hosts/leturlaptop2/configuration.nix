@@ -244,6 +244,9 @@
         layout = "us";
       };
     };
+
+    # enable removable drive automount
+    udisks2.enable = true;
   };
 
   # Open ports in the firewall.
