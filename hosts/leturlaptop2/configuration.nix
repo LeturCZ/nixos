@@ -9,6 +9,9 @@
 }: {
   home-manager.useGlobalPkgs = true;
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   imports = [
     ./hardware-configuration.nix
     # home-manager.nixosModules.home-manager.default
