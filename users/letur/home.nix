@@ -37,50 +37,52 @@ in {
     # Let Home Manager install and manage itself.
     # programs.home-manager.enable = true;
   };
-  services.syncthing = {
-    enable = true;
-    settings = {
-      devices = {
-        LeturDesktop.id = "2WC35HT-I5G3NLJ-PCOLDLZ-OAKBV47-3YD2S63-ZH46GZ4-JARYHFK-7DUMPQV";
-        "Redmi Note 10".id = "7QH27PV-VIH5K3F-5K4ANMT-VH6GDTN-XSGHTXT-7GQLBIA-KCU2ORK-JTLVTQH";
-      };
-      folders = {
-        KeePass = {
-          enable = true;
-          id = "yx3fz-gpus9";
-          path = "~/Documents/KeePass/";
-          devices = [
-            "LeturDesktop"
-            "Redmi Note 10"
-          ];
-          type = "sendreceive";
+  services = {
+    syncthing = {
+      enable = true;
+      settings = {
+        devices = {
+          LeturDesktop.id = "2WC35HT-I5G3NLJ-PCOLDLZ-OAKBV47-3YD2S63-ZH46GZ4-JARYHFK-7DUMPQV";
+          "Redmi Note 10".id = "7QH27PV-VIH5K3F-5K4ANMT-VH6GDTN-XSGHTXT-7GQLBIA-KCU2ORK-JTLVTQH";
         };
-        Music = {
-          enable = true;
-          id = "ukaqx-rgku7";
-          path = "~/Music/";
-          devices = [
-            "LeturDesktop"
-            "Redmi Note 10"
-          ];
-          type = "receiveonly";
+        folders = {
+          KeePass = {
+            enable = true;
+            id = "yx3fz-gpus9";
+            path = "~/Documents/KeePass/";
+            devices = [
+              "LeturDesktop"
+              "Redmi Note 10"
+            ];
+            type = "sendreceive";
+          };
+          Music = {
+            enable = true;
+            id = "ukaqx-rgku7";
+            path = "~/Music/";
+            devices = [
+              "LeturDesktop"
+              "Redmi Note 10"
+            ];
+            type = "receiveonly";
+          };
+          VUTPersonalDrive = {
+            enable = true;
+            id = "jdoaw-rh4of";
+            path = "~/VUTPersonalDrive";
+            devices = [
+              "LeturDesktop"
+            ];
+            type = "sendreceive";
+          };
         };
-        VUTPersonalDrive = {
-          enable = true;
-          id ="jdoaw-rh4of";
-          path = "~/VUTPersonalDrive";
-          devices = [
-            "LeturDesktop"
-          ];
-          type = "sendreceive";
+        options = {
+          relaysEnabled = false;
+          crashreportingenabled = false;
+          globalannounceenabled = false;
+          natenabled = false;
+          urAccepted = -1; # telemetry permission denied
         };
-      };
-      options = {
-        relaysEnabled = false;
-        crashreportingenabled = false;
-        globalannounceenabled = false;
-        natenabled = false;
-        urAccepted = -1; # telemetry permission denied
       };
     };
   };
