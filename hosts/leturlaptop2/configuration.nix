@@ -29,6 +29,10 @@
 
   programs = {
     hyprland.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+    };
   };
 
   # virtualisation.virtualbox.guest = {
