@@ -65,6 +65,15 @@ in {
           ];
           type = "receiveonly";
         };
+        VUTPersonalDrive = {
+          enable = true;
+          id ="jdoaw-rh4of";
+          path = "~/VUTPersonalDrive";
+          devices = [
+            "LeturDesktop"
+          ];
+          type = "sendreceive";
+        };
       };
       options = {
         relaysEnabled = false;
