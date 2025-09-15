@@ -744,16 +744,19 @@ with lib; {
                             installation_mode = "force_installed";
                             install_url = "file:///${canvasblocker}";
                             default_area = "menupanel";
+                            private_browsing = true;
                           };
                           "addon@darkreader.org" = {
                             installation_mode = "force_installed";
                             install_url = "file:///${darkreader}";
                             default_area = "menupanel";
+                            private_browsing = true;
                           };
                           "firemonkey@eros.man" = {
                             installation_mode = "force_installed";
                             install_url = "file:///${firemonkey}";
                             default_area = "menupanel";
+                            private_browsing = true;
                           };
                           "floccus@handmadeideas.org" = {
                             installation_mode = "force_installed";
@@ -764,16 +767,19 @@ with lib; {
                             installation_mode = "force_installed";
                             install_url = "file:///${keepassxc-browser}";
                             default_area = "menupanel";
+                            private_browsing = true;
                           };
                           "offline-qr-code@rugk.github.io" = {
                             installation_mode = "force_installed";
                             install_url = "file:///${offline-qr-code-generator}";
                             default_area = "navbar";
+                            private_browsing = true;
                           };
                           "redirector@einaregilsson.com" = {
                             installation_mode = "force_installed";
                             install_url = "file:///${redirector}";
                             default_area = "menupanel";
+                            private_browsing = true;
                           };
                           "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
                             installation_mode = "force_installed";
@@ -794,6 +800,7 @@ with lib; {
                             installation_mode = "force_installed";
                             install_url = "file:///${ublock-origin}";
                             default_area = "navbar";
+                            private_browsing = true;
                           };
                         } # // (listToExtensionAttrs ["uBlock0@raymondhill.net"]) "force_installed"
                         // (listToExtensionAttrs [
