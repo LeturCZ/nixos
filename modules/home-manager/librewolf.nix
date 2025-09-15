@@ -708,6 +708,7 @@ with lib; {
                       AutofillAddressEnabled = false;
                       AutofillCreditCardEnabled = false;
                       DisableEncryptedClientHello = false;
+                      DisableMasterPasswordCreation = true;
                       DisableFirefoxAccounts = true;
                       DisableFirefoxStudies = true;
                       DisablePocket = true;
