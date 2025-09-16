@@ -40,6 +40,7 @@ in {
 
       bind = [
         "CTRL_ALT, T, exec, alacritty"
+        "SUPER, E, exec, dolphin --new-window ~/"
         "SUPER, F, fullscreen, 1"
         "SUPER_ALT, F, fullscreen, 0"
         "ALT, F4, killactive"
