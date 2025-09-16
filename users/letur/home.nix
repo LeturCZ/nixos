@@ -15,6 +15,73 @@ in {
     };
   };
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      /*
+      l -> locked, will also work when an input inhibitor (e.g. a lockscreen) is active.
+      r -> release, will trigger on release of a key.
+      c -> click, will trigger on release of a key or button as long as the mouse cursor stays inside binds:drag_threshold.
+      g -> drag, will trigger on release of a key or button as long as the mouse cursor moves outside binds:drag_threshold.
+      o -> longPress, will trigger on long press of a key.
+      e -> repeat, will repeat when held.
+      n -> non-consuming, key/mouse events will be passed to the active window in addition to triggering the dispatcher.
+      m -> mouse, see below.
+      t -> transparent, cannot be shadowed by other binds.
+      i -> ignore mods, will ignore modifiers.
+      s -> separate, will arbitrarily combine keys between each mod/key, see [Keysym combos](#keysym-combos) above.
+      d -> has description, will allow you to write a description for your bind.
+      p -> bypasses the app's requests to inhibit keybinds.
+      */
+      # drag_threshold = 10; # cursor distance where a click is considered a drag
+
+      binds = [
+      ];
+
+      bind = [
+        "CTRL_ALT, T, exec, alacritty"
+        "SUPER, F, fullscreen, 1"
+        "SUPER_ALT, F, fullscreen, 0"
+        "ALT, F4, killactive"
+        "ALT, F2, exec, rofi -show drun"
+        "CTRL_ALT, right, workspace, +1"
+        "CTRL_ALT, left, workspace, -1"
+        "SUPER, left, movefocus, l"
+        "SUPER, right, movefocus, r"
+        "SUPER, up, movefocus, u"
+        "SUPER, down, movefocus, d"
+      ];
+
+      bindel = [
+        ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl --exponent s 5%+"
+        ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl --min-value=20 --exponent s 5%-"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume --limit=1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ];
+
+      bindl = [
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+
+      bindm = [
+        "SUPER, mouse:272, movewindow"
+      ];
+
+      bindc = [
+        "SUPER, mouse:272, togglefloating"
+      ];
+
+      xwayland.force_zero_scaling = true;
+      input.touchpad.natural_scroll = true;
+      env = [
+        "XCURSOR_SIZE,16"
+        "GDK_SCALE,1.25"
+      ];
+      
+      exec-once = ["waybar"];
+    };
+  };
+
   home = {
     packages = with pkgs; [
       keepassxc
