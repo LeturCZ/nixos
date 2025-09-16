@@ -707,6 +707,9 @@
         "disko": "disko",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "nix-index-database": [
+          "nixpkgs"
+        ],
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "poly-dark-grub-theme": "poly-dark-grub-theme",
