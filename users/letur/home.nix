@@ -15,28 +15,30 @@ in {
     };
   };
 
-  xdg.desktopEntries.codium = {
-    name = "VSCodium";
-    genericName = "Text Editor";
-    comment = "Code Editing. Redefined.";
-    exec = "codium --enable-features=UseOzonePlatform --ozone-platform=wayland %F";
-    terminal = false;
-    categories = [
-      "Utility"
-      "TextEditor"
-      "Development"
-      "IDE"
-    ];
-    icon = "vscodium";
-    type = "Application";
-    settings = {
-      StartupWMClass = "vscodium";
-      StartupNotify = "true";
-      Keywords = "vscode";
-    };
-    actions.new-empty-window = {
-      name = "New Empty Window";
-      exec = "codium --new-window --enable-features=UseOzonePlatform --ozone-platform=wayland %F";
+  xdg = {
+    desktopEntries.codium = {
+      name = "VSCodium";
+      genericName = "Text Editor";
+      comment = "Code Editing. Redefined.";
+      exec = "codium --enable-features=UseOzonePlatform --ozone-platform=wayland %F";
+      terminal = false;
+      categories = [
+        "Utility"
+        "TextEditor"
+        "Development"
+        "IDE"
+      ];
+      icon = "vscodium";
+      type = "Application";
+      settings = {
+        StartupWMClass = "vscodium";
+        StartupNotify = "true";
+        Keywords = "vscode";
+      };
+      actions.new-empty-window = {
+        name = "New Empty Window";
+        exec = "codium --new-window --enable-features=UseOzonePlatform --ozone-platform=wayland %F";
+      };
     };
   };
 
