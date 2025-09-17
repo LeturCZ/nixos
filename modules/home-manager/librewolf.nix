@@ -286,7 +286,7 @@ with lib; {
                         "Youtube video" = {
                           urls = [
                             {
-                              template = "https://www.youtube.com/watchlive";
+                              template = "https://www.youtube.com/watch";
                               params = [
                                 {
                                   name = "v";
