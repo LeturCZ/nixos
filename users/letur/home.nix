@@ -67,20 +67,28 @@ in {
       binds = [
       ];
 
-      bind = [
-        "CTRL_ALT, T, exec, alacritty"
-        "SUPER, E, exec, dolphin --new-window ~/"
-        "SUPER, F, fullscreen, 1"
-        "SUPER_ALT, F, fullscreen, 0"
-        "ALT, F4, killactive"
-        "ALT, F2, exec, rofi -show drun"
-        "CTRL_ALT, right, workspace, +1"
-        "CTRL_ALT, left, workspace, -1"
-        "SUPER, left, movefocus, l"
-        "SUPER, right, movefocus, r"
-        "SUPER, up, movefocus, u"
-        "SUPER, down, movefocus, d"
-      ];
+      bind =
+        [
+          "CTRL_ALT, T, exec, alacritty"
+          "SUPER, E, exec, dolphin --new-window ~/"
+          "SUPER, F, fullscreen, 1"
+          "SUPER_ALT, F, fullscreen, 0"
+          "ALT, F4, killactive"
+          "ALT, F2, exec, rofi -show drun"
+          "CTRL_ALT, right, workspace, +1"
+          "CTRL_ALT, left, workspace, -1"
+          "SUPER, left, movefocus, l"
+          "SUPER, right, movefocus, r"
+          "SUPER, up, movefocus, u"
+          "SUPER, down, movefocus, d"
+          "SUPER_ALT, right, workspace, +1"
+          "SUPER_CTRL, right, movetoworkspace, +1"
+          "SUPER_ALT, left, workspace, -1"
+          "SUPER_CTRL, left, movetoworkspace, -1"
+        ]
+
+        # Workspace number bindings
+        ++ lib.lists.concatMap (input: ["SUPER_ALT, ${input}, workspace, ${input}" "SUPER_CTRL, ${input}, movetoworkspacesilent, ${input}"]) ["1" "2" "3" "4" "5" "6" "7" "8" "9" "0"];
 
       bindel = [
         ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl --exponent s 5%+"
