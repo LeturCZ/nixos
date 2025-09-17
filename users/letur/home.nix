@@ -2,6 +2,7 @@
   pkgs,
   codium-pkgs,
   lib,
+  inputs,
   ...
 }: let
   username = "Letur";
@@ -16,6 +17,7 @@ in {
   };
 
   xdg = {
+    # cacheHome = "~/.cache";
     desktopEntries.codium = {
       name = "VSCodium";
       genericName = "Text Editor";
@@ -105,14 +107,15 @@ in {
         "XCURSOR_SIZE,16"
         "GDK_SCALE,1.25"
       ];
-      
+
       exec-once = ["waybar"];
     };
   };
 
   home = {
-    packages = with pkgs; [
+    packages = with pkgs; with inputs; [
       keepassxc
+      nix-index-database.outputs.packages.x86_64-linux.comma-with-db
     ];
     # Home Manager needs a bit of information about you and the
     # paths it should manage.

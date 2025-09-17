@@ -39,6 +39,11 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      # follows = "nixpkgs"; #! Does not have the home manager module if follow is set
+    };
   };
 
   outputs = {

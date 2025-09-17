@@ -4,6 +4,7 @@
   pkgs,
   codium-pkgs,
   lib,
+  inputs,
   ...
 }: {
   imports = [
@@ -17,6 +18,6 @@
   };
 
   home-manager.users.letur = import ./home.nix {
-    inherit pkgs codium-pkgs lib;
+    inherit pkgs codium-pkgs lib inputs;
   };
 }
