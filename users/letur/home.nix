@@ -197,6 +197,7 @@ in {
     };
   };
   programs = {
+    fsearch.enable = true;
     libreoffice.enable = true;
     git = {
       enable = true;

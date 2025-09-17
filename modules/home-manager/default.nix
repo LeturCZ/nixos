@@ -3,5 +3,6 @@
     ./librewolf.nix
     ./discord.nix
     ./libreoffice.nix
+    ./fsearch.nix
   ];
 }
