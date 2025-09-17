@@ -113,7 +113,8 @@ in {
   };
 
   home = {
-    packages = with pkgs; with inputs; [
+    packages = with pkgs;
+    with inputs; [
       keepassxc
       nix-index-database.outputs.packages.x86_64-linux.comma-with-db
     ];
@@ -188,6 +189,7 @@ in {
     };
   };
   programs = {
+    libreoffice.enable = true;
     git = {
       enable = true;
       userEmail = email;

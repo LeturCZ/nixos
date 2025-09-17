@@ -1,18 +1,31 @@
-{ config, lib, pkgs }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; {
   options = {
-    home-manager.users = lib.mkOption {
-      type = types.attrsOf (types.submoduleWith { modules = toList ({ name, isKde = config.desktopManager.plasma6.enable;, ... }: let cfg = config.home-manager.users.${name}.presets.browsers.librewolf; in {
-        options.programs.libreoffice = with lib; {
-          enable = mkEnableOption
-        };
-        config.home-manager.users.${name} = {
-          home = {
-            packages = if isKde then [ libreoffice-qt ] else [ libreoffice ];
+    home-manager.users = mkOption {
+      type = types.attrsOf (types.submoduleWith {
+        modules = toList (
+          {name, ...}: let
+            cfg = config.home-manager.users.${name};
+          in {
+            options.programs.libreoffice = {
+              enable = mkEnableOption "enable Libreoffice for user";
+            };
+            config = {
+              home = {
+                packages = with pkgs;
+                  if config.services.desktopManager.plasma6.enable
+                  then [libreoffice-qt]
+                  else [libreoffice];
+              };
+            };
           }
-        };
-      });});
+        );
+      });
+    };
   };
-}
 }
