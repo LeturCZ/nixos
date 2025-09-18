@@ -8,7 +8,7 @@
   username = "Letur";
   usernameLower = lib.strings.toLower username;
   email = "LeturCZ@seznam.cz";
-in {
+in rec {
   presets.browsers.librewolf = {
     enable = true;
     settings = {
@@ -47,6 +47,10 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      input = {
+        kb_layout = home.keyboard.layout;
+        kb_variant = home.keyboard.variant;
+      };
       /*
       l -> locked, will also work when an input inhibitor (e.g. a lockscreen) is active.
       r -> release, will trigger on release of a key.
@@ -121,6 +125,11 @@ in {
   };
 
   home = {
+    keyboard = {
+      layout = "cz";
+      variant = "coder";
+    };
+
     packages = with pkgs;
     with inputs; [
       keepassxc
