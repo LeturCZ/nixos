@@ -23,6 +23,7 @@ with lib; {
             home.packages = [pkgs.fsearch];
             home.file.fsearchConfig = {
               enable = true;
+              force = true;
               target = ".config/fsearch/fsearch.conf";
               text = customUtils.toConf {
                 Interface.enable_dark_theme = true;
