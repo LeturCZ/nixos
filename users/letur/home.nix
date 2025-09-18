@@ -248,18 +248,29 @@ in rec {
       };
     };
   };
-  # stylix = {
-  #   image = ../../wallpapers/yfdFDwe.png;
-  #   # enable = true;
-  #   polarity = "dark";
-  #   fonts = {
-  #     monospace = {
-  #       package = pkgs.jetbrains-mono;
-  #       name = "JetBrains Mono";
-  #     };
-  #   };
-  #   targets = {
-  #     kde.enable = false;
-  #   };
-  # };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface".icon-theme = stylix.iconTheme.dark;
+  };
+
+  stylix = {
+    # image = ../../wallpapers/yfdFDwe.png;
+    enable = true;
+
+    # https://tinted-theming.github.io/tinted-gallery/
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+    
+    polarity = "dark";
+    # fonts = {
+    #   monospace = {
+    #     package = pkgs.jetbrains-mono;
+    #     name = "JetBrains Mono";
+    #   };
+    # };
+    iconTheme = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus";
+    };
+  };
 }
