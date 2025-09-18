@@ -134,6 +134,7 @@ in rec {
     with inputs; [
       keepassxc
       nix-index-database.outputs.packages.x86_64-linux.comma-with-db
+      styluslabs-write
     ];
     # Home Manager needs a bit of information about you and the
     # paths it should manage.
