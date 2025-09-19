@@ -18,14 +18,20 @@ with lib;
               options.programs.vscode = {
                 startupArguments = mkOption {
                   type = types.attrs;
-                  default = {
-                    enable-crash-reporter = false;
-                  };
+                  default = { };
                   description = "Set permanent commandline arguments for vscode";
                 };
                 disableAIFeatures = mkOption {
                   type = types.bool;
                   default = true;
+                };
+                crashReporting = {
+                  enable = mkEnableOption "Enable VSCode crash reporter";
+                  id = mkOption {
+                    type = types.strMatching "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}";
+                    description = "The crash reporter identifier";
+                    example = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+                  };
                 };
                 profiles = mkOption {
                   type = types.attrsOf (
@@ -46,9 +52,14 @@ with lib;
                   enable = true;
                   force = true;
                   target = ".vscode-oss/argv.json";
-                  text = builtins.toJSON cfg.programs.vscode.startupArguments;
+                  text = builtins.toJSON (
+                    lib.attrsets.optionalAttrs cfg.programs.vscode.crashReporting.enable {
+                      enable-crash-reporter = cfg.programs.vscode.crashReporting.enable;
+                      crash-reporter-id = cfg.programs.vscode.crashReporting.id;
+                    }
+                    // cfg.programs.vscode.startupArguments
+                  );
                 };
-
               };
             }
           );
