@@ -17,7 +17,17 @@ in rec {
   };
 
   xdg = {
-    # cacheHome = "~/.cache";
+    enable = true;
+    stateHome = "/home/${usernameLower}/.local/state";
+    cacheHome = "/home/${usernameLower}/.cache";
+    configHome = "/home/${usernameLower}/.config";
+    dataHome = "/home/${usernameLower}/.local/share";
+    terminal-exec = {
+      enable = true;
+      settings.default = [
+        "Alacritty.desktop"
+      ];
+    };
     desktopEntries.codium = {
       name = "VSCodium";
       genericName = "Text Editor";
