@@ -58,7 +58,9 @@ rec {
 
   wayland.windowManager.hyprland = {
     enable = true;
+    autoRotate = true;
     settings = {
+      monitor = "eDP-1,preferred,auto,1.25,transform,0";
       input = {
         kb_layout = home.keyboard.layout;
         kb_variant = home.keyboard.variant;

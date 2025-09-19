@@ -7,5 +7,6 @@
     ./fsearch.nix
     ./vscode.nix
     ./keepassxc.nix
+    ./iio-hyprland.nix
   ];
 }

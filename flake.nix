@@ -39,6 +39,10 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+    iio-hyprland = {
+      url = "github:JeanSchoeller/iio-hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
