@@ -6,7 +6,8 @@
   home-manager,
   pkgs,
   ...
-}: {
+}:
+{
   home-manager.useGlobalPkgs = true;
 
   hardware.bluetooth.enable = true;
@@ -148,7 +149,9 @@
   home-manager.users.letur = {
     fonts.fontconfig.enable = true;
     home = {
-      sessionVariables.TERMINAL = "alacritty";
+      sessionVariables = {
+        TERMINAL = "alacritty";
+      };
       packages = with pkgs; [
         font-awesome # req. by waybar
         signal-desktop
