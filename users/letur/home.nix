@@ -195,6 +195,16 @@ in rec {
             ];
             type = "sendreceive";
           };
+          Logseq = {
+            enable = true;
+            id = "fd7yt-qguj5";
+            path = "~/Documents/Logseq";
+            devices = [
+              "LeturDesktop"
+              "Redmi Note 10"
+            ];
+            type = "sendreceive";
+          };
         };
         options = {
           relaysEnabled = false;
