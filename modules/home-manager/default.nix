@@ -5,5 +5,6 @@
     ./libreoffice.nix
     ./fsearch.nix
     ./vscode.nix
+    ./keepassxc.nix
   ];
 }

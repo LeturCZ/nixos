@@ -142,7 +142,6 @@ in rec {
 
     packages = with pkgs;
     with inputs; [
-      keepassxc
       nix-index-database.outputs.packages.x86_64-linux.comma-with-db
       styluslabs-write
     ];
@@ -227,6 +226,7 @@ in rec {
     };
   };
   programs = {
+    keepassxc.enable = true;
     fsearch.enable = true;
     libreoffice.enable = true;
     git = {
@@ -254,9 +254,6 @@ in rec {
     vscode = {
       enable = true;
       package = pkgs.vscodium;
-      startupArguments = {
-        password-store = "gnome-libsecret"; # fix for keepassxc secret store
-      };
       profiles.default = {
         extensions = with codium-pkgs.open-vsx; [
           aaron-bond.better-comments
