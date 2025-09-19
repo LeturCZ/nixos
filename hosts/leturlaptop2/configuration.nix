@@ -185,6 +185,7 @@
 
   # Enable the OpenSSH daemon.
   services = {
+    tumbler.enable = true; # thumbnailer service
     openssh.enable = true;
     # desktopManager.plasma6.enable = true;
     displayManager.sddm = {
