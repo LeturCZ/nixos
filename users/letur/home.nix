@@ -234,6 +234,10 @@ in rec {
     vscode = {
       enable = true;
       package = pkgs.vscodium;
+      startupArguments = {
+        enable-crash-reporter = false;
+        password-store = "gnome-libsecret"; # fix for keepassxc secret store
+      };
       profiles.default = {
         extensions = with codium-pkgs.open-vsx; [
           aaron-bond.better-comments
