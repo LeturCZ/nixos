@@ -80,7 +80,10 @@
       in
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = {inherit inputs codium-pkgs system; customUtils = lib;};
+          specialArgs = {
+            inherit inputs codium-pkgs system;
+            customUtils = lib;
+          };
           modules = [
             ./commons
             ./modules
