@@ -23,9 +23,12 @@
     ];
   };
 
-  # stylix.enable = true;
+  stylix.enable = true;
   # stylix.image = ../../wallpapers/yfdFDwe.png;
-  # stylix.polarity = "dark";
+  stylix.polarity = "dark";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+  stylix.targets.plymouth.enable = false;
+  stylix.targets.grub.enable = false;
 
   programs = {
     hyprland.enable = true;
