@@ -87,7 +87,8 @@
 
   boot.loader.grub.enableCryptodisk = true;
 
-  boot.initrd.luks.devices."luks-cb22329a-228b-4764-a7fc-46c8ac6eef06".device = "/dev/disk/by-uuid/cb22329a-228b-4764-a7fc-46c8ac6eef06";
+  boot.initrd.luks.devices."luks-cb22329a-228b-4764-a7fc-46c8ac6eef06".device =
+    "/dev/disk/by-uuid/cb22329a-228b-4764-a7fc-46c8ac6eef06";
   networking.hostName = "leturlaptop2"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
