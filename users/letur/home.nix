@@ -279,6 +279,56 @@ rec {
           aaron-bond.better-comments
           jnoortheen.nix-ide
         ];
+languageSnippets = {
+          nix = {
+            mod = {
+              body = [
+                "{"
+                "  config,"
+                "  lib,"
+                "  ..."
+                "}:"
+                "with lib;"
+                "{"
+                "  options = {"
+                "  };"
+                "  config = {"
+                "  };"
+                "}"
+              ];
+              description = "A NixOS module";
+              prefix = [
+                "mod"
+              ];
+            };
+            submod = {
+              body = [
+                "\${1:path} = lib.mkOption {"
+                "  type = types.attrsOf ("
+                "    types.submoduleWith {"
+                "      modules = toList ("
+                "        { \${2:name}, ... }:"
+                "        let"
+                "          cfg = config.\${1:path}.$\{\${2:name}};"
+                "        in"
+                "        {"
+                "          options = {"
+                "          };"
+                "          config = {"
+                "          };"
+                "        }"
+                "      );"
+                "    }"
+                "  );"
+                "};"
+              ];
+              description = "A nix submodule";
+              prefix = [
+                "submod"
+              ];
+            };
+          };
+        };
         userSettings = {
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "${pkgs.nil}/bin/nil";
