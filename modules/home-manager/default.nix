@@ -8,5 +8,6 @@
     ./vscode.nix
     ./keepassxc.nix
     ./iio-hyprland.nix
+    ./waybar.nix
   ];
 }
