@@ -40,7 +40,7 @@ with lib;
                       modules = toList (
                         { name, ... }:
                         {
-                          config.userSettings."chat.disableAIFeatures" = mkIf cfg.programs.vscode.disableAIFeatures false;
+                          config.userSettings."chat.disableAIFeatures" = mkIf cfg.programs.vscode.disableAIFeatures true;
                         }
                       );
                     }
