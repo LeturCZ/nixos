@@ -70,8 +70,37 @@ with lib; {
                     }
                   );
                 };
-                xdg.mimeApps.associations.added = {
-                  "text/plain" = ["codium.desktop"];
+                xdg = {
+                  mimeApps.associations.added = {
+                    "text/plain" = ["codium.desktop"];
+                  };
+                  desktopEntries.codium = {
+                    name = "VSCodium";
+                    genericName = "Text Editor";
+                    comment = "Code Editing. Redefined.";
+                    exec = "codium --enable-features=UseOzonePlatform --ozone-platform=wayland %F";
+                    terminal = false;
+                    mimeType = [
+                      "text/plain"
+                    ];
+                    categories = [
+                      "Utility"
+                      "TextEditor"
+                      "Development"
+                      "IDE"
+                    ];
+                    icon = "vscodium";
+                    type = "Application";
+                    settings = {
+                      StartupWMClass = "vscodium";
+                      StartupNotify = "true";
+                      Keywords = "vscode";
+                    };
+                    actions.new-empty-window = {
+                      name = "New Empty Window";
+                      exec = "codium --new-window --enable-features=UseOzonePlatform --ozone-platform=wayland %F";
+                    };
+                  };
                 };
               };
             }
