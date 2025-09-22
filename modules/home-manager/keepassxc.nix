@@ -48,14 +48,24 @@ with lib; {
                   };
                 };
                 xdg.autostart.enable = mkIf cfg.programs.keepassxc.autostart true;
-                wayland.windowManager.hyprland.settings.exec-once = mkIf (
-                  cfg.programs.keepassxc.autostart && cfg.wayland.windowManager.hyprland.enable
-                ) [ "keepassxc --minimized" ];
+                wayland.windowManager.hyprland.settings = mkIf cfg.wayland.windowManager.hyprland.enable {
+                  exec-once = mkIf cfg.programs.keepassxc.autostart ["keepassxc --minimized"];
+                  windowrule = [
+                    "float, class:org.keepassxc.KeePassXC, title:Unlock Database - KeePassXC"
+                    "pin, class:org.keepassxc.KeePassXC, title:Unlock Database - KeePassXC"
+                    "center, class:org.keepassxc.KeePassXC, title:Unlock Database - KeePassXC"
+                    "stayfocused, class:org.keepassxc.KeePassXC, title:Unlock Database - KeePassXC"
+                    "float, class:org.keepassxc.KeePassXC, title:KeePassXC -  Access Request"
+                    "pin, class:org.keepassxc.KeePassXC, title:KeePassXC -  Access Request"
+                    "center, class:org.keepassxc.KeePassXC, title:KeePassXC -  Access Request"
+                    "stayfocused, class:org.keepassxc.KeePassXC, title:KeePassXC -  Access Request"
+                  ];
+                };
                 programs.vscode.startupArguments =
                   mkIf (cfg.programs.keepassxc.secretService && cfg.programs.vscode.enable)
-                    {
-                      "password-store" = "gnome-libsecret";
-                    };
+                  {
+                    "password-store" = "gnome-libsecret";
+                  };
               };
             }
           );
