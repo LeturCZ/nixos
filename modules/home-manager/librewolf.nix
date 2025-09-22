@@ -561,6 +561,9 @@ with lib; {
                       })
 
                       {
+                        # disable resistFingerprinting (blocks dark theme for some reason)
+                        "privacy.resistFingerprinting" = cfg.settings.resistFingerprinting;
+
                         # auto enable extensions
                         "extensions.autoDisableScopes" = 0;
 
