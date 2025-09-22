@@ -28,6 +28,10 @@ in rec {
         "Alacritty.desktop"
       ];
     };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "text/plain" = ["codium.desktop"];
       };
     };
   };
