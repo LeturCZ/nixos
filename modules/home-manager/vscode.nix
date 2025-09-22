@@ -70,6 +70,9 @@ with lib; {
                     }
                   );
                 };
+                xdg.mimeApps.associations.added = {
+                  "text/plain" = ["codium.desktop"];
+                };
               };
             }
           );

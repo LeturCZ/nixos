@@ -34,6 +34,9 @@ in rec {
       comment = "Code Editing. Redefined.";
       exec = "codium --enable-features=UseOzonePlatform --ozone-platform=wayland %F";
       terminal = false;
+      mimeType = [
+        "text/plain"
+      ];
       categories = [
         "Utility"
         "TextEditor"
