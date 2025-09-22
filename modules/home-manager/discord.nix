@@ -4,27 +4,24 @@
   pkgs,
   ...
 }:
-with lib;
-{
+with lib; {
   options = {
     home-manager.users = lib.mkOption {
       type = types.attrsOf (
         types.submoduleWith {
           modules = toList (
-            { name, ... }:
-            let
+            {name, ...}: let
               cfg = config.home-manager.users.${name};
-            in
-            {
+            in {
               options.programs.discord = {
                 enable = mkEnableOption "enable Discord for user";
                 extraProfiles = mkOption {
                   type = types.listOf types.str;
-                  default = [ ];
+                  default = [];
                 };
               };
               config = mkIf cfg.programs.discord.enable {
-                home.packages = [ pkgs.discord ];
+                home.packages = [pkgs.discord];
                 home.file.discordConfig = {
                   enable = true;
                   target = ".config/discord/settings.json";
@@ -41,7 +38,7 @@ with lib;
                     "Network"
                     "InstantMessaging"
                   ];
-                  mimeType = [ "x-scheme-handler/discord" ];
+                  mimeType = ["x-scheme-handler/discord"];
                   icon = "discord";
                   type = "Application";
                   settings = {
@@ -49,11 +46,9 @@ with lib;
                   };
                   actions = builtins.listToAttrs (
                     builtins.map (
-                      profileName:
-                      let
+                      profileName: let
                         home = "${cfg.xdg.dataHome}/discord/profiles/${profileName}";
-                      in
-                      {
+                      in {
                         name = profileName;
                         value = {
                           name = "Discord (" + profileName + ")";
@@ -67,7 +62,8 @@ with lib;
                             + " Discord --multi-instance";
                         };
                       }
-                    ) cfg.programs.discord.extraProfiles
+                    )
+                    cfg.programs.discord.extraProfiles
                   );
                 };
               };

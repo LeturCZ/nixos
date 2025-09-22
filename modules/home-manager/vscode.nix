@@ -1,24 +1,22 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
-with lib;
-{
+with lib; {
   options = {
     home-manager.users = lib.mkOption {
       type = types.attrsOf (
         types.submoduleWith {
           modules = toList (
-            { name, ... }:
-            let
+            {name, ...}: let
               cfg = config.home-manager.users.${name};
-            in
-            {
+            in {
               options.programs.vscode = {
                 startupArguments = mkOption {
                   type = types.attrs;
-                  default = { };
+                  default = {};
                   description = "Set permanent commandline arguments for vscode";
                 };
                 disableAIFeatures = mkOption {
@@ -38,9 +36,8 @@ with lib;
                     types.submoduleWith {
                       shorthandOnlyDefinesConfig = true;
                       modules = toList (
-                        { name, ... }:
-                        {
                           config.userSettings."chat.disableAIFeatures" = mkIf cfg.programs.vscode.disableAIFeatures true;
+                        {name, ...}: {
                         }
                       );
                     }

@@ -4,13 +4,11 @@
   lib,
   inputs,
   ...
-}:
-let
+}: let
   username = "Letur";
   usernameLower = lib.strings.toLower username;
   email = "LeturCZ@seznam.cz";
-in
-rec {
+in rec {
   presets.browsers.librewolf = {
     enable = true;
     settings = {
@@ -85,7 +83,8 @@ rec {
       binds = [
       ];
 
-      bind = [
+      bind =
+        [
           "CTRL_ALT, T, exec, alacritty"
           "SUPER, E, exec, dolphin --new-window ~/"
           "SUPER, F, fullscreen, 1"
@@ -105,24 +104,12 @@ rec {
         ]
 
         # Workspace number bindings
-      ++
-        lib.lists.concatMap
+        ++ lib.lists.concatMap
           (input: [
             "SUPER_ALT, ${input}, workspace, ${input}"
             "SUPER_CTRL, ${input}, movetoworkspacesilent, ${input}"
           ])
-          [
-            "1"
-            "2"
-            "3"
-            "4"
-            "5"
-            "6"
-            "7"
-            "8"
-            "9"
-            "0"
-          ];
+        ["1" "2" "3" "4" "5" "6" "7" "8" "9" "0"];
 
       bindel = [
         ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl --exponent s 5%+"
@@ -257,7 +244,7 @@ rec {
     };
     discord = {
       enable = true;
-      extraProfiles = [ "VUT" ];
+      extraProfiles = ["VUT"];
     };
     waybar = {
       enable = true;

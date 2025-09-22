@@ -3,20 +3,17 @@
   lib,
   ...
 }:
-with lib;
-{
+with lib; {
   options = {
     home-manager.users = lib.mkOption {
       type = types.attrsOf (
         types.submoduleWith {
           modules = toList (
-            { name, ... }:
-            let
+            {name, ...}: let
               cfg = config.home-manager.users.${name};
-            in
-            {
+            in {
               config = mkIf cfg.programs.waybar.enable {
-                wayland.windowManager.hyprland.settings.exec-once = [ "waybar" ];
+                wayland.windowManager.hyprland.settings.exec-once = ["waybar"];
               };
             }
           );

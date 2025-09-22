@@ -3,18 +3,15 @@
   lib,
   ...
 }:
-with lib;
-{
+with lib; {
   options = {
     home-manager.users = lib.mkOption {
       type = types.attrsOf (
         types.submoduleWith {
           modules = toList (
-            { name, ... }:
-            let
+            {name, ...}: let
               cfg = config.home-manager.users.${name};
-            in
-            {
+            in {
               options.programs.keepassxc = {
                 darkTheme = mkOption {
                   type = types.bool;
@@ -37,7 +34,10 @@ with lib;
                     };
                     FdoSecrets.Enabled = cfg.programs.keepassxc.secretService;
                     GUI = {
-                      ApplicationTheme = if cfg.programs.keepassxc.darkTheme then "dark" else "light";
+                      ApplicationTheme =
+                        if cfg.programs.keepassxc.darkTheme
+                        then "dark"
+                        else "light";
                       MinimizeOnClose = true;
                       MinimizeToTray = true;
                       ShowTrayIcon = true;

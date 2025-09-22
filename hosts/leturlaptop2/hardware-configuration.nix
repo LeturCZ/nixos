@@ -7,8 +7,7 @@
   pkgs,
   modulesPath,
   ...
-}:
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -21,17 +20,16 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/b9dacbef-9c39-4d19-bb6b-b02a98404def";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-e768957b-b6eb-41eb-9d2a-17be594b8e31".device =
-    "/dev/disk/by-uuid/e768957b-b6eb-41eb-9d2a-17be594b8e31";
+  boot.initrd.luks.devices."luks-e768957b-b6eb-41eb-9d2a-17be594b8e31".device = "/dev/disk/by-uuid/e768957b-b6eb-41eb-9d2a-17be594b8e31";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/06CC-150A";
@@ -43,7 +41,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/a68a083e-15a4-45ba-842e-cf93f2cc8dde"; }
+    {device = "/dev/disk/by-uuid/a68a083e-15a4-45ba-842e-cf93f2cc8dde";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

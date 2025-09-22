@@ -4,18 +4,15 @@
   pkgs,
   ...
 }:
-with lib;
-{
+with lib; {
   options = {
     home-manager.users = lib.mkOption {
       type = types.attrsOf (
         types.submoduleWith {
           modules = toList (
-            { name, ... }:
-            let
+            {name, ...}: let
               cfg = config.home-manager.users.${name};
-            in
-            {
+            in {
               options.programs.fsearch = {
                 enable = mkEnableOption "enable Fsearch for user";
                 darkTheme = mkOption {
@@ -24,12 +21,12 @@ with lib;
                 };
               };
               config = mkIf cfg.programs.fsearch.enable {
-                home.packages = [ pkgs.fsearch ];
+                home.packages = [pkgs.fsearch];
                 home.file.fsearchConfig = {
                   enable = true;
                   force = true;
                   target = ".config/fsearch/fsearch.conf";
-                  text = lib.generators.toINI { } {
+                  text = lib.generators.toINI {} {
                     Interface.enable_dark_theme = true;
                     Database = {
                       update_database_on_launch = true;
