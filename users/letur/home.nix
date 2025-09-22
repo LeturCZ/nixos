@@ -102,13 +102,12 @@ in rec {
           "SUPER_ALT, left, workspace, -1"
           "SUPER_CTRL, left, movetoworkspace, -1"
         ]
-
         # Workspace number bindings
         ++ lib.lists.concatMap
-          (input: [
-            "SUPER_ALT, ${input}, workspace, ${input}"
-            "SUPER_CTRL, ${input}, movetoworkspacesilent, ${input}"
-          ])
+        (input: [
+          "SUPER_ALT, ${input}, workspace, ${input}"
+          "SUPER_CTRL, ${input}, movetoworkspacesilent, ${input}"
+        ])
         ["1" "2" "3" "4" "5" "6" "7" "8" "9" "0"];
 
       bindel = [
@@ -266,7 +265,7 @@ in rec {
           aaron-bond.better-comments
           jnoortheen.nix-ide
         ];
-languageSnippets = {
+        languageSnippets = {
           nix = {
             mod = {
               body = [

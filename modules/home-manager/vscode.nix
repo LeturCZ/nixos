@@ -37,7 +37,7 @@ with lib; {
                       shorthandOnlyDefinesConfig = true;
                       modules = toList (
                         {name, ...}: {
-config.userSettings = let
+                          config.userSettings = let
                             formatterPath = "${pkgs.alejandra}/bin/alejandra";
                           in {
                             "chat.disableAIFeatures" = mkIf cfg.programs.vscode.disableAIFeatures true;
