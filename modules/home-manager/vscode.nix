@@ -54,10 +54,12 @@ with lib;
                   target = ".vscode-oss/argv.json";
                   text = builtins.toJSON (
                     lib.attrsets.optionalAttrs cfg.programs.vscode.crashReporting.enable {
-                      enable-crash-reporter = cfg.programs.vscode.crashReporting.enable;
                       crash-reporter-id = cfg.programs.vscode.crashReporting.id;
                     }
                     // cfg.programs.vscode.startupArguments
+                    // {
+                      enable-crash-reporter = cfg.programs.vscode.crashReporting.enable;
+                    }
                   );
                 };
               };
