@@ -36,8 +36,19 @@ with lib; {
                     types.submoduleWith {
                       shorthandOnlyDefinesConfig = true;
                       modules = toList (
-                          config.userSettings."chat.disableAIFeatures" = mkIf cfg.programs.vscode.disableAIFeatures true;
                         {name, ...}: {
+config.userSettings = let
+                            formatterPath = "${pkgs.alejandra}/bin/alejandra";
+                          in {
+                            "chat.disableAIFeatures" = mkIf cfg.programs.vscode.disableAIFeatures true;
+
+                            "nix.enableLanguageServer" = true;
+                            "nix.serverPath" = "${pkgs.nil}/bin/nil";
+                            "nix.formatterPath" = formatterPath;
+                            "nix.serverSettings".nil.formatting.command = [formatterPath];
+                            "git.defaultBranchName" = "master";
+                            "editor.formatOnSave" = true;
+                          };
                         }
                       );
                     }

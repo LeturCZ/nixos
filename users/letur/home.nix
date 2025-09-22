@@ -316,13 +316,6 @@ languageSnippets = {
             };
           };
         };
-        userSettings = {
-          "nix.enableLanguageServer" = true;
-          "nix.serverPath" = "${pkgs.nil}/bin/nil";
-          "nix.formatterPath" = "${pkgs.alejandra}/bin/alejandra";
-          "git.defaultBranchName" = "master";
-          "editor.formatOnSave" = true;
-        };
       };
     };
   };
