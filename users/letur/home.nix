@@ -135,8 +135,6 @@ in rec {
         "XCURSOR_SIZE,16"
         "GDK_SCALE,1.25"
       ];
-
-      exec-once = ["waybar"];
     };
   };
 
