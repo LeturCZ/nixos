@@ -211,20 +211,23 @@ with lib; {
                   profiles.${cfg.defaultProfileName} = {
                     isDefault = true;
                     id = 0;
-                    extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-                      betterttv
-                      canvasblocker
-                      darkreader
-                      firemonkey
-                      floccus
-                      keepassxc-browser
-                      offline-qr-code-generator
-                      redirector
-                      return-youtube-dislikes
-                      sponsorblock
-                      terms-of-service-didnt-read
-                      ublock-origin
-                    ];
+                    extensions = {
+                      force = true; # req. by stylix
+                      packages = with pkgs.nur.repos.rycee.firefox-addons; [
+                        betterttv
+                        canvasblocker
+                        darkreader
+                        firemonkey
+                        floccus
+                        keepassxc-browser
+                        offline-qr-code-generator
+                        redirector
+                        return-youtube-dislikes
+                        sponsorblock
+                        terms-of-service-didnt-read
+                        ublock-origin
+                      ];
+                    };
                     search = {
                       force = true;
                       default = "StartPage search";
