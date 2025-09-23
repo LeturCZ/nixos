@@ -39,6 +39,7 @@
     };
   };
 
+  virtualisation.libvirtd.enable = true;
   # virtualisation.virtualbox.guest = {
   #  enable = true;
   #  x11 = true;
@@ -134,6 +135,9 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "libvirtd"
+      "qemu-libvirtd"
+      "kvm"
     ];
     packages = with pkgs; [
       alacritty
