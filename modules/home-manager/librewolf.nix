@@ -641,8 +641,8 @@ with lib; {
                         "browser.urlbar.suggest.addons" = mkDefault cfg.settings.searchSuggestions.addons;
 
                         # Dark theme
-                        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-                        "lightweightThemes.selectedThemeID" = "firefox-compact-dark@mozilla.org";
+                        "extensions.activeThemeID" = mkIf (! cfg.stylix.targets.firefox.enable) "firefox-compact-dark@mozilla.org";
+                        "lightweightThemes.selectedThemeID" = mkIf (! cfg.stylix.targets.firefox.enable) "firefox-compact-dark@mozilla.org";
                         "browser.theme.content-theme" = 0;
                         "browser.theme.toolbar-theme" = 0;
                       }
