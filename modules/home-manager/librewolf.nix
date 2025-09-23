@@ -839,6 +839,10 @@ with lib; {
                   ];
                 };
               };
+              wayland.windowManager.hyprland.settings.windowrule = mkIf cfg.wayland.windowManager.hyprland.enable [
+                "float, class:librewolf, title:Picture-in-Picture"
+                "pin, class:librewolf, title:Picture-in-Picture"
+              ];
             };
           });
         }
