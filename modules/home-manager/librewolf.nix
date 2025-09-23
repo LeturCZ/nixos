@@ -28,6 +28,10 @@ with lib; {
                     type = bool;
                     default = true;
                   };
+                  resistFingerprinting = mkOption {
+                    type = bool;
+                    default = false;
+                  };
                   hideTabCloseButtons = mkOption {
                     type = bool;
                     default = true;
