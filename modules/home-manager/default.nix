@@ -1,12 +1,9 @@
-{...}: {
-  imports = [
-    ./librewolf.nix
-    ./discord.nix
-    ./libreoffice.nix
-    ./fsearch.nix
-    ./vscode.nix
-    ./keepassxc.nix
-    ./iio-hyprland.nix
-    ./waybar.nix
-  ];
+{lib, ...}: {
+  imports = with builtins; let
+    remove = list: filter: lib.remove list filter;
+  in
+    readDir ./.
+    |> attrNames
+    |> remove "default.nix"
+    |> map (name: ./. + "/${name}");
 }
