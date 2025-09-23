@@ -317,6 +317,7 @@ in rec {
     #     name = "JetBrains Mono";
     #   };
     # };
+    targets.firefox.profileNames = ["default"];
     iconTheme = {
       enable = true;
       package = pkgs.papirus-icon-theme;
