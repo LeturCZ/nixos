@@ -10,7 +10,8 @@ with lib; {
       type = types.attrsOf (
         types.submoduleWith {
           modules = toList ({name, ...}: let
-            cfg = config.home-manager.users.${name}.presets.browsers.librewolf;
+            cfg = config.home-manager.users.${name};
+            cfgLibrewolf = cfg.presets.browsers.librewolf;
           in {
             options.presets = with types; {
               browsers.librewolf = {
@@ -207,7 +208,7 @@ with lib; {
               };
               programs = {
                 firefox = {
-                  enable = mkDefault cfg.enable;
+                  enable = mkDefault cfgLibrewolf.enable;
                   vendorPath = null;
                   configPath = ".librewolf";
 
@@ -216,7 +217,7 @@ with lib; {
                     extraPoliciesFiles = [];
                   };
 
-                  profiles.${cfg.defaultProfileName} = {
+                  profiles.${cfgLibrewolf.defaultProfileName} = {
                     isDefault = true;
                     id = 0;
                     extensions = {
@@ -514,25 +515,25 @@ with lib; {
                       };
                     };
                     settings = mkMerge [
-                      (mkIf cfg.settings.clearOnShutdown.enable {
+                      (mkIf cfgLibrewolf.settings.clearOnShutdown.enable {
                         # What data gets cleared on shutdown
-                        "privacy.clearOnShutdown.cache" = mkDefault cfg.settings.clearOnShutdown.cache;
-                        "privacy.clearOnShutdown.cookies" = mkDefault cfg.settings.clearOnShutdown.cookies;
-                        "privacy.clearOnShutdown.formdata" = mkDefault cfg.settings.clearOnShutdown.forms;
-                        "privacy.clearOnShutdown.offlineApps" = mkDefault cfg.settings.clearOnShutdown.offlineApps;
-                        "privacy.clearOnShutdown.sessions" = mkDefault cfg.settings.clearOnShutdown.sessions;
-                        "privacy.clearOnShutdown_v2.cache" = mkDefault cfg.settings.clearOnShutdown.cache;
-                        "privacy.clearOnShutdown_v2.cookiesAndStorage" = mkDefault cfg.settings.clearOnShutdown.cookies;
-                        "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = mkDefault cfg.settings.clearOnShutdown.forms;
+                        "privacy.clearOnShutdown.cache" = mkDefault cfgLibrewolf.settings.clearOnShutdown.cache;
+                        "privacy.clearOnShutdown.cookies" = mkDefault cfgLibrewolf.settings.clearOnShutdown.cookies;
+                        "privacy.clearOnShutdown.formdata" = mkDefault cfgLibrewolf.settings.clearOnShutdown.forms;
+                        "privacy.clearOnShutdown.offlineApps" = mkDefault cfgLibrewolf.settings.clearOnShutdown.offlineApps;
+                        "privacy.clearOnShutdown.sessions" = mkDefault cfgLibrewolf.settings.clearOnShutdown.sessions;
+                        "privacy.clearOnShutdown_v2.cache" = mkDefault cfgLibrewolf.settings.clearOnShutdown.cache;
+                        "privacy.clearOnShutdown_v2.cookiesAndStorage" = mkDefault cfgLibrewolf.settings.clearOnShutdown.cookies;
+                        "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = mkDefault cfgLibrewolf.settings.clearOnShutdown.forms;
 
-                        "privacy.clearOnShutdown.downloads" = mkDefault cfg.settings.clearOnShutdown.downloads;
-                        "privacy.clearOnShutdown.history" = mkDefault cfg.settings.clearOnShutdown.history;
-                        "privacy.clearOnShutdown.openWindows" = mkDefault cfg.settings.clearOnShutdown.openWindows;
-                        "privacy.clearOnShutdown.siteSettings" = mkDefault cfg.settings.clearOnShutdown.siteSettings;
-                        "privacy.clearOnShutdown_v2.siteSettings" = mkDefault cfg.settings.clearOnShutdown.siteSettings;
+                        "privacy.clearOnShutdown.downloads" = mkDefault cfgLibrewolf.settings.clearOnShutdown.downloads;
+                        "privacy.clearOnShutdown.history" = mkDefault cfgLibrewolf.settings.clearOnShutdown.history;
+                        "privacy.clearOnShutdown.openWindows" = mkDefault cfgLibrewolf.settings.clearOnShutdown.openWindows;
+                        "privacy.clearOnShutdown.siteSettings" = mkDefault cfgLibrewolf.settings.clearOnShutdown.siteSettings;
+                        "privacy.clearOnShutdown_v2.siteSettings" = mkDefault cfgLibrewolf.settings.clearOnShutdown.siteSettings;
                       })
 
-                      (mkIf cfg.settings.security.httpsOnly {
+                      (mkIf cfgLibrewolf.settings.security.httpsOnly {
                         # HTTPS only mode
                         "dom.security.https_only_mode" = mkDefault true;
                         # Do not send background http requests
@@ -552,20 +553,20 @@ with lib; {
                       })
 
                       # disable warning popup on entering fullscreen
-                      (mkIf cfg.settings.disableFullscreenWarning {
+                      (mkIf cfgLibrewolf.settings.disableFullscreenWarning {
                         "full-screen-api.warning.timeout" = mkDefault 0;
                         "full-screen-api.warning.delay" = mkDefault "-1";
                       })
 
                       # disable warning popup on entering fullscreen
-                      (mkIf cfg.settings.disableFullscreenTransitionAnimation {
+                      (mkIf cfgLibrewolf.settings.disableFullscreenTransitionAnimation {
                         "full-screen-api.transition-duration.enter" = mkDefault "0 0";
                         "full-screen-api.transition-duration.leave" = mkDefault "0 0";
                         "full-screen-api.transition.timeout" = mkDefault 0;
                       })
 
                       # Block autoplay until tab is in focus
-                      (mkIf cfg.settings.blockAutoplayInBackground {
+                      (mkIf cfgLibrewolf.settings.blockAutoplayInBackground {
                         "media.block-autoplay-until-in-foreground" = mkDefault true;
                         "media.block-play-until-document-interaction" = mkDefault true;
                         "media.block-play-until-visible" = mkDefault true;
@@ -829,7 +830,7 @@ with lib; {
                       SearchEngines.Remove = ["Google" "Bing" "Wikipedia (en)" "MetaGer" "DuckDuckGo Lite" "DuckDuckGo"];
                     }
 
-                    (mkIf cfg.averageUserMode {
+                    (mkIf cfgLibrewolf.averageUserMode {
                       # BlockAboutAddons = true;
                       # BlockAboutConfig = true;
                       BlockAboutProfiles = true;
