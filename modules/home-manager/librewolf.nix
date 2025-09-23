@@ -196,6 +196,10 @@ with lib; {
             };
 
             config = {
+              xdg.mimeApps.associations.added = {
+                "application/pdf" = ["librewolf.desktop"];
+              };
+
               home = {
                 username = name;
                 homeDirectory = "/home/${name}";
