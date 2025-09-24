@@ -22,6 +22,7 @@
       "flakes"
       "pipe-operators"
     ];
+    trusted-users = ["letur"];
   };
 
   stylix.enable = true;
