@@ -151,6 +151,8 @@ in rec {
     # programs.home-manager.enable = true;
   };
   services = {
+    # notification daemon
+    dunst.enable = true;
     # enable removable drive automount
     udiskie.enable = true;
 
