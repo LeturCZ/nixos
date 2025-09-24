@@ -131,6 +131,7 @@ in rec {
       nix-index-database.outputs.packages.x86_64-linux.comma-with-db
       styluslabs-write
       virt-manager
+      logseq
     ];
     # Home Manager needs a bit of information about you and the
     # paths it should manage.
