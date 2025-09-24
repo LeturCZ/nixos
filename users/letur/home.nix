@@ -224,6 +224,12 @@ in rec {
       userEmail = email;
       userName = username;
       extraConfig.init.defaultBranch = "master";
+      includes = [
+        {
+          condition = "gitdir:~/VUTPersonalDrive/**";
+          path = "~/VUTPersonalDrive/.gitconfig";
+        }
+      ];
     };
     discord = {
       enable = true;
