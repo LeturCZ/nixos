@@ -1,6 +1,3 @@
-{...}: {
-  imports = [
-    ./plymouth.nix
-    ./grub.nix
-  ];
+{customUtils, ...}: {
+  imports = customUtils.getAllModules ./.;
 }
