@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  customUtils,
   ...
 }:
 with lib; {
@@ -32,7 +33,7 @@ with lib; {
                 xdg.desktopEntries.discord = {
                   name = "Discord";
                   genericName = "All-in-one cross-platform voice and text chat for gamers";
-                  exec = "Discord --multi-instance";
+                  exec = "Discord --multi-instance ${customUtils.electronWaylandFlags}";
                   terminal = false;
                   categories = [
                     "Network"
@@ -59,7 +60,8 @@ with lib; {
                             + " XDG_CACHE_HOME=${home}/.cache"
                             + " XDG_STATE_HOME=${home}/.local/state"
                             + " XDG_CONFIG_HOME=${home}/.config"
-                            + " Discord --multi-instance";
+                            + " Discord --multi-instance"
+                            + " ${customUtils.electronWaylandFlags}";
                         };
                       }
                     )
