@@ -48,6 +48,7 @@ with lib; {
                             "nix.serverSettings".nil.formatting.command = [formatterPath];
                             "git.defaultBranchName" = "master";
                             "editor.formatOnSave" = true;
+                            "explorer.confirmDelete" = false;
                           };
                         }
                       );
