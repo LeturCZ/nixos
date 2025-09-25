@@ -255,6 +255,7 @@ in rec {
           aaron-bond.better-comments
           jnoortheen.nix-ide
           timonwong.shellcheck
+          eamodio.gitlens
         ];
         languageSnippets = {
           nix = {
