@@ -255,7 +255,6 @@ in rec {
           aaron-bond.better-comments
           jnoortheen.nix-ide
           timonwong.shellcheck
-          arrterian.nix-env-selector
         ];
         languageSnippets = {
           nix = {
