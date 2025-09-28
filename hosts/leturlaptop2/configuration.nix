@@ -33,6 +33,7 @@
   stylix.targets.grub.enable = false;
 
   programs = {
+    fish.enable = true;
     hyprland.enable = true;
     steam = {
       enable = true;

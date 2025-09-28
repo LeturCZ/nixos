@@ -17,6 +17,8 @@
     allowedTCPPorts = [21027];
   };
 
+  users.users.letur.shell = pkgs.fish;
+
   home-manager.users.letur = import ./home.nix {
     inherit pkgs codium-pkgs lib inputs;
   };

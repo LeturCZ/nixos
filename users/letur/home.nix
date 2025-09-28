@@ -126,6 +126,8 @@ in rec {
       variant = "coder";
     };
 
+    shell.enableFishIntegration = true;
+
     packages = with pkgs;
     with inputs; [
       nix-index-database.outputs.packages.x86_64-linux.comma-with-db
@@ -216,6 +218,7 @@ in rec {
     };
   };
   programs = {
+    fish.enable = true;
     nemo.enable = true;
     keepassxc.enable = true;
     fsearch.enable = true;
