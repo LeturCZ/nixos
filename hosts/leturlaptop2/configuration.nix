@@ -144,7 +144,7 @@
       alacritty
       gparted
       exfatprogs
-      kdePackages.dolphin
+      nemo
       mpv
       nil
       nixd
@@ -174,6 +174,7 @@
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_STATE_HOME = "$HOME/.local/state";
       XDG_CONFIG_HOME = "$HOME/.config";
+      TERMINAL = "alacritty";
     };
     systemPackages = with pkgs; [
       #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -193,7 +194,8 @@
 
   # Enable the OpenSSH daemon.
   services = {
-    tumbler.enable = true; # thumbnailer service
+    # tumbler.enable = true; # thumbnailer service
+    gvfs.enable = true; # userspace filesystem for file managers
     openssh.enable = true;
     # desktopManager.plasma6.enable = true;
     displayManager.sddm = {

@@ -68,7 +68,7 @@ in rec {
       bind =
         [
           "CTRL_ALT, T, exec, alacritty"
-          "SUPER, E, exec, dolphin --new-window ~/"
+          "SUPER, E, exec, nemo ~/"
           "SUPER, F, fullscreen, 1"
           "SUPER_ALT, F, fullscreen, 0"
           "ALT, F4, killactive"
@@ -216,6 +216,7 @@ in rec {
     };
   };
   programs = {
+    nemo.enable = true;
     keepassxc.enable = true;
     fsearch.enable = true;
     libreoffice.enable = true;
