@@ -220,9 +220,8 @@ in rec {
   programs = {
     fish = {
       enable = true;
-      shellInitLast = ''
-        ${pkgs.starship}/bin/starship init fish | source
-      '';
+      enableZoxide = true;
+      enableStarship = true;
     };
     nemo.enable = true;
     keepassxc.enable = true;
