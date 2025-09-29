@@ -17,7 +17,7 @@ with lib; {
             };
             config = mkIf cfg.programs.nemo.enable {
               home = {
-                packages = [pkgs.nemo];
+                packages = with pkgs; [nemo ffmpegthumbnailer ffmpeg-headless];
                 file = {
                   ".gnome2/accels/nemo".text = ''
                     (gtk_accel_path "<Actions>/DirViewActions/OpenInTerminal" "<Primary><Alt>t")
