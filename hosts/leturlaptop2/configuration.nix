@@ -194,6 +194,7 @@
 
   # Enable the OpenSSH daemon.
   services = {
+    tlp.enable = true; # power management
     # tumbler.enable = true; # thumbnailer service
     gvfs.enable = true; # userspace filesystem for file managers
     openssh.enable = true;
