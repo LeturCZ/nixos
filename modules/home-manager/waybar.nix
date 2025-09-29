@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; {
@@ -14,6 +15,7 @@ with lib; {
             in {
               config = mkIf cfg.programs.waybar.enable {
                 wayland.windowManager.hyprland.settings.exec-once = ["waybar"];
+                home.packages = with pkgs; [nerd-fonts.meslo-lg jetbrains-mono];
               };
             }
           );
