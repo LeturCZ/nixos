@@ -218,7 +218,12 @@ in rec {
     };
   };
   programs = {
-    fish.enable = true;
+    fish = {
+      enable = true;
+      shellInitLast = ''
+        ${pkgs.starship}/bin/starship init fish | source
+      '';
+    };
     nemo.enable = true;
     keepassxc.enable = true;
     fsearch.enable = true;
