@@ -218,6 +218,7 @@ in rec {
     };
   };
   programs = {
+    nomacs.enable = true;
     fish = {
       enable = true;
       enableZoxide = true;
