@@ -326,12 +326,12 @@ in rec {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
     
     polarity = "dark";
-    # fonts = {
-    #   monospace = {
-    #     package = pkgs.jetbrains-mono;
-    #     name = "JetBrains Mono";
-    #   };
-    # };
+    fonts = {
+      monospace = {
+        package = pkgs.jetbrains-mono;
+        name = "JetBrains Mono";
+      };
+    };
     targets.firefox.profileNames = ["default"];
     iconTheme = {
       enable = true;
