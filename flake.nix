@@ -60,7 +60,10 @@
     codium-pkgs-universal = inputs.codium-exts.extensions;
     pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
   in rec {
-    lib = import ./lib {inherit pkgs;};
+    lib = import ./lib {inherit pkgs self;};
+    packages = {
+      x86_64-linux = lib.importPackagesRecursive ./packages;
+    };
     nixosConfigurations = {
       # leturlaptop =
       # let
