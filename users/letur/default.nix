@@ -5,6 +5,7 @@
   codium-pkgs,
   lib,
   inputs,
+  miscFiles,
   ...
 }: {
   imports = [
@@ -20,6 +21,6 @@
   users.users.letur.shell = pkgs.fish;
 
   home-manager.users.letur = import ./home.nix {
-    inherit pkgs codium-pkgs lib inputs;
+    inherit pkgs codium-pkgs lib inputs miscFiles;
   };
 }

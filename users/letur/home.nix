@@ -3,6 +3,7 @@
   codium-pkgs,
   lib,
   inputs,
+  miscFiles,
   ...
 }: let
   username = "Letur";
@@ -217,6 +218,10 @@ in rec {
       };
     };
   };
+  wallpaper = {
+    enable = true;
+    sourceFiles = builtins.attrValues miscFiles.images.wallpapers;
+  };
   programs = {
     nomacs.enable = true;
     fish = {
@@ -328,8 +333,8 @@ in rec {
     enable = true;
 
     # https://tinted-theming.github.io/tinted-gallery/
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
-    
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/equilibrium-dark.yaml";
+
     polarity = "dark";
     fonts = {
       monospace = {
