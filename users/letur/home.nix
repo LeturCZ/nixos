@@ -118,6 +118,10 @@ in rec {
         "XCURSOR_SIZE,16"
         "GDK_SCALE,1.25"
       ];
+
+      layerrule = [
+        "blur,waybar"
+      ];
     };
   };
 
@@ -331,6 +335,8 @@ in rec {
   stylix = {
     # image = ../../wallpapers/yfdFDwe.png;
     enable = true;
+
+    opacity.desktop = 0.5;
 
     # https://tinted-theming.github.io/tinted-gallery/
     base16Scheme = "${pkgs.base16-schemes}/share/themes/equilibrium-dark.yaml";
