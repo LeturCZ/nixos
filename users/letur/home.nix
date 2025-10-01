@@ -122,6 +122,10 @@ in rec {
       layerrule = [
         "blur,waybar"
       ];
+
+      general = {
+        gaps_out = 10;
+      };
     };
   };
 
