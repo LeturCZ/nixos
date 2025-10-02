@@ -39,7 +39,15 @@ with lib; {
 
                   selectedWallpaper=''${wallpapers[ $RANDOM % ''${#wallpapers[@]} ]}
 
-                  ${pkgs.swww}/bin/swww img "$selectedWallpaper"
+                  [[ "$selectedWallpaper" =~ ^.*\.\([^.]+\)$ ]]
+
+                  filter="Lanczos3"
+
+                  if [[ "$(realpath "$selectedWallpaper")" == *"/pixelart/"* ]]; then
+                    filter="Nearest"
+                  fi
+
+                  ${pkgs.swww}/bin/swww img --filter="$filter" "$selectedWallpaper"
                 '';
               in
                 mkIf cfg.wallpaper.enable {

@@ -228,7 +228,7 @@ in rec {
   };
   wallpaper = {
     enable = true;
-    sourceFiles = builtins.attrValues miscFiles.images.wallpapers;
+    sourceFiles = [miscFiles.images.wallpapers.pixelart.Aduare.Lumine_Falling_Midnight];
   };
   programs = {
     nomacs.enable = true;
