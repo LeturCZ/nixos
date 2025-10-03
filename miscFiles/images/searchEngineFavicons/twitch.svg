@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   shape-rendering="geometricPrecision"
+   text-rendering="geometricPrecision"
+   image-rendering="optimizeQuality"
+   fill-rule="evenodd"
+   clip-rule="evenodd"
+   viewBox="0 0 439 512.17"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="twitch-color-icon.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.78099071"
+     inkscape:cx="219.59288"
+     inkscape:cy="255.44478"
+     inkscape:window-width="1536"
+     inkscape:window-height="834"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3" />
+  <g
+     fill-rule="nonzero"
+     id="g3">
+    <path
+       fill="#FEFEFE"
+       d="M402.42 237.79l-73.17 73.17h-73.17l-64.02 64.02v-64.02h-82.31V36.59h292.67z"
+       id="path1" />
+    <path
+       fill="#9F77F7"
+       d="M402.42 237.79l-73.17 73.17h-73.17l-64.02 64.02v-64.02h-82.31V36.59h292.67v201.2zM91.46 0L0 91.46v329.25h109.75v91.46l91.46-91.46h73.17L439 256.08V0H91.46z"
+       id="path2"
+       style="fill:#9146ff;fill-opacity:1" />
+    <path
+       fill="#9F77F7"
+       d="M310.96 210.35h36.58V100.6h-36.58zM210.35 210.35h36.59V100.6h-36.59z"
+       id="path3" />
+    <path
+       style="fill:#9146ff;fill-opacity:1;stroke-width:1.28042"
+       d="m 210.62991,155.57163 v -54.41806 h 17.92594 17.92595 v 54.41806 54.41806 h -17.92595 -17.92594 z"
+       id="path7" />
+    <path
+       style="fill:#9146ff;fill-opacity:1;stroke-width:1.28042"
+       d="m 311.78348,155.57163 v -54.41806 h 17.28573 17.28574 v 54.41806 54.41806 h -17.28574 -17.28573 z"
+       id="path8" />
+  </g>
+</svg>
