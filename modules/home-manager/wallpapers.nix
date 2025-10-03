@@ -22,28 +22,92 @@ with lib; {
                     default = "swww";
                     description = "The application providing wallpaper functionality";
                   };
-                  sourceFiles = mkOption {
-                    type = types.listOf types.path;
-                    description = "A list of paths to the wallpaper files";
-                    default = [];
+                  sourceFiles = lib.mkOption {
+                    type = types.listOf (
+                      types.submoduleWith {
+                        modules = toList (
+                          {wallpaper, ...}: let
+                            cfg = config.sourceFiles.${name};
+                          in {
+                            options = {
+                              path = mkOption {
+                                type = types.path;
+                              };
+                              type = mkOption {
+                                type = types.enum [
+                                  "regular"
+                                  "pixelart"
+                                ];
+                                description = "used to determine the scaling method";
+                              };
+                              animated = mkOption {
+                                type = types.bool;
+                              };
+                            };
+                          }
+                        );
+                      }
+                    );
                   };
+                  # sourceFiles = mkOption {
+                  #   type = types.listOf types.path;
+                  #   description = "A list of paths to the wallpaper files";
+                  #   default = [];
+                  # };
                 };
               };
               config = let
                 execCommand = {swww = [swwwRandomizeScript];};
                 cfgHyprland = cfg.wayland.windowManager.hyprland;
                 swwwRandomizeScript = pkgs.writeShellScript "swwwLoadRandom.sh" ''
-                  wallpapers=( ${cfg.wallpaper.sourceFiles
-                    |> builtins.map (value: "\"${value}\"")
-                    |> lib.concatStringsSep "\n"} )
 
-                  selectedWallpaper=''${wallpapers[ $RANDOM % ''${#wallpapers[@]} ]}
+                  numFiles=${cfg.wallpaper.sourceFiles |> builtins.length |> builtins.toString}
 
-                  [[ "$selectedWallpaper" =~ ^.*\.\([^.]+\)$ ]]
+                  files=(
+                    ${cfg.wallpaper.sourceFiles
+                    |> builtins.map (value: "\"${value.path}\"")
+                    |> lib.concatStringsSep "\n"}
+                  )
+
+                  fileTypes=(
+                    ${cfg.wallpaper.sourceFiles
+                    |> builtins.map (value: "\"${value.type}\"")
+                    |> lib.concatStringsSep "\n"}
+                  )
+
+                  flagAnimated=(
+                    ${cfg.wallpaper.sourceFiles
+                    |> builtins.map (value: "${value.animated |> builtins.toString}")
+                    |> lib.concatStringsSep "\n"}
+                  )
+
+                  selectedIndex=$((RANDOM % numFiles))
+
+                  while true; do
+
+                    selectedType="''${fileTypes[$selectedIndex]}"
+                    selectedAnimation="''${flagAnimated[$selectedIndex]}"
+
+                    if [[ $# -gt 0 ]] && [[ "$selectedType" != "$1" ]] \
+                    && ! { { [[ "$1" == "animated" ]] && [[ $selectedAnimation ]]; } \
+                    || { [[ "$1" == "static" ]] && [[ ! $selectedAnimation ]]; } }; then \
+                      selectedIndex=$((selectedIndex+1 % numFiles))
+
+                      continue
+
+                    fi
+
+                    break
+
+                  done
+
+
+                  selectedWallpaper=''${files[$selectedIndex]}
+                  selectedType=''${fileTypes[$selectedIndex]}
 
                   filter="Lanczos3"
 
-                  if [[ "$(realpath "$selectedWallpaper")" == *"/pixelart/"* ]]; then
+                  if [[ "$selectedType" == "pixelart" ]]; then
                     filter="Nearest"
                   fi
 
