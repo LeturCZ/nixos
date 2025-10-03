@@ -14,6 +14,6 @@ in
   # show non-nix files as-is
     mapAttrs' (name: value: nameValuePair (removeSuffix name) (directory + "/${name}")) otherFiles
     # import nix files as packages
-    // mapAttrs' (name: value: nameValuePair (removeSuffix name) (pkgs.callPackage directory + "/${name}")) nixFiles
+    // mapAttrs' (name: value: nameValuePair (removeSuffix name) (pkgs.callPackage (directory + "/${name}") {})) nixFiles
     # recursively import directories
-    // builtins.mapAttrs (name: value: self.outputs.lib.importPackagesRecursive (directory + "/${name}")) directories
+    // builtins.mapAttrs (name: value: self.outputs.customUtils.importPackagesRecursive (directory + "/${name}")) directories

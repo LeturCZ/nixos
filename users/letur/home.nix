@@ -4,6 +4,7 @@
   lib,
   inputs,
   miscFiles,
+  system,
   ...
 }: let
   username = "Letur";
@@ -228,7 +229,29 @@ in rec {
   };
   wallpaper = {
     enable = true;
-    sourceFiles = [miscFiles.images.wallpapers.pixelart.Aduare.Lumine_Falling_Midnight];
+    sourceFiles = with miscFiles.images.wallpapers;
+    with inputs.self.packages.${system}.externalWallpapers.pixelart.Aduare;
+      (
+        [
+          Lumine_Falling_Midnight
+          Emily_Dream_in_a_Moment
+          Ephemeral
+          Stellarium
+        ]
+        |> builtins.map (path: {
+          type = "pixelart";
+          animated = true;
+          inherit path;
+        })
+      )
+      ++ (
+        [yfdFDwe]
+        |> builtins.map (path: {
+          type = "regular";
+          animated = false;
+          inherit path;
+        })
+      );
   };
   programs = {
     nomacs.enable = true;
