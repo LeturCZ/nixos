@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="37"
+   height="38"
+   viewBox="0 0 37 38"
+   version="1.1"
+   id="svg21"
+   sodipodi:docname="Wolfram_Alpha_December_2016.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview21"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4"
+     inkscape:cx="85.625"
+     inkscape:cy="53.125"
+     inkscape:window-width="1536"
+     inkscape:window-height="834"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg21" />
+  <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title1">Wolfram_Alpha_December_2016</title>
+  <desc
+     id="desc1">Created with Sketch.</desc>
+  <defs
+     id="defs1" />
+  <g
+     id="Page-1"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <g
+       id="Wolfram_Alpha_December_2016">
+      <g
+         id="Group"
+         transform="translate(41,3)"
+         fill="#dd1100" />
+      <g
+         id="g1"
+         transform="translate(170,4)"
+         fill="#ff7d00" />
+      <g
+         id="g21">
+        <polyline
+           id="polyline1"
+           fill="#f16850"
+           points="37 24.87 29.13 26.55 29.93 34.37 22.56 31.21 18.5 38 14.44 31.21 7.07 34.37 7.87 26.55 0 24.87 5.36 19 0 13.13 7.87 11.45 7.07 3.63 14.44 6.79 18.5 0 22.56 6.79 29.93 3.63 29.13 11.46 37 13.13 31.64 19" />
+        <polyline
+           id="polyline2"
+           fill="#fd694f"
+           points="18.5 11.86 14.44 6.79 7.07 3.63 11.46 9.41" />
+        <polyline
+           id="polyline3"
+           fill="#ff3413"
+           points="7.87 11.45 0 13.13 5.36 19 11.66 16.71" />
+        <polyline
+           id="polyline4"
+           fill="#dc1d23"
+           points="11.46 9.41 7.07 3.63 7.87 11.45 11.66 16.71" />
+        <polyline
+           id="polyline5"
+           fill="#ff9281"
+           points="22.56 6.79 18.5 0 14.44 6.79 18.5 11.86" />
+        <polyline
+           id="polyline6"
+           fill="#ff8b79"
+           points="31.64 19 37 13.13 29.13 11.45 25.34 16.71" />
+        <polyline
+           id="polyline7"
+           fill="#fd694f"
+           points="25.34 16.71 29.13 11.45 29.94 3.63 25.54 9.41" />
+        <polyline
+           id="polyline8"
+           fill="#ef5240"
+           points="25.54 9.41 29.94 3.63 22.56 6.79 18.5 11.86" />
+        <polyline
+           id="polyline9"
+           fill="#ff482c"
+           points="29.9 22.5 37 24.87 31.64 19 25.34 16.71" />
+        <polyline
+           id="polyline10"
+           fill="#ec2101"
+           points="11.66 16.71 5.36 19 0 24.87 7.1 22.5" />
+        <polyline
+           id="polyline11"
+           fill="#d21c22"
+           points="18.5 30.59 18.5 38 22.56 31.21 22.73 24.56" />
+        <polyline
+           id="polyline12"
+           fill="#c90901"
+           points="29.9 22.5 22.73 24.56 29.13 26.55 37 24.87" />
+        <polyline
+           id="polyline13"
+           fill="#ec2101"
+           points="22.56 31.21 29.93 34.37 29.13 26.55 22.73 24.56" />
+        <polyline
+           id="polyline14"
+           fill="#b6171e"
+           points="7.1 22.5 0 24.87 7.87 26.54 14.27 24.56" />
+        <polyline
+           id="polyline15"
+           fill="#b4151b"
+           points="14.27 24.56 14.44 31.21 18.5 38 18.5 30.59" />
+        <polyline
+           id="polyline16"
+           fill="#d21c22"
+           points="7.87 26.54 7.07 34.37 14.44 31.21 14.27 24.56" />
+        <polyline
+           id="polyline17"
+           fill="#e63320"
+           points="25.34 16.71 25.54 9.41 18.5 11.86 18.5 18.96" />
+        <polyline
+           id="polyline18"
+           fill="#ff4527"
+           points="18.5 11.86 11.46 9.41 11.66 16.71 18.5 18.96" />
+        <polyline
+           id="polyline19"
+           fill="#ff9281"
+           points="14.27 24.56 18.5 30.59 22.73 24.56 18.5 18.96" />
+        <polyline
+           id="polyline20"
+           fill="#fd684d"
+           points="18.5 18.96 22.73 24.56 29.9 22.5 25.34 16.71" />
+        <polyline
+           id="polyline21"
+           fill="#fd745c"
+           points="11.66 16.71 7.1 22.5 14.27 24.56 18.5 18.96" />
+      </g>
+    </g>
+  </g>
+  <metadata
+     id="metadata21">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Wolfram_Alpha_December_2016</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

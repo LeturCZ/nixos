@@ -239,6 +239,7 @@ with lib; {
                       ];
                     };
                     search = {
+                      #! don't use non-string values in search parameters (ex. true instead of "true")
                       force = true;
                       default = "StartPage search";
                       privateDefault = "StartPage search";
@@ -503,6 +504,26 @@ with lib; {
                           icon = icons.nix;
                           definedAliases = ["hmopts" "@hmopts"];
                         };
+                        "Wolfram Alpha" = {
+                          urls = [
+                            {
+                              template = "https://www.wolframalpha.com/input";
+                              params = [
+                                {
+                                  name = "i2d"; # math mode
+                                  value = "true";
+                                }
+                                {
+                                  name = "i";
+                                  value = "{searchTerms}";
+                                }
+                              ];
+                            }
+                          ];
+                          icon = icons.wolframalpha;
+                          definedAliases = ["wa" "@wolframalpha"];
+                        };
+
                         "google".metaData.hidden = true;
                         "bing".metaData.hidden = true;
                         "wikipedia".metaData.hidden = true;
