@@ -504,6 +504,21 @@ with lib; {
                           icon = icons.nix;
                           definedAliases = ["hmopts" "@hmopts"];
                         };
+                        "NixOS Wiki" = {
+                          urls = [
+                            {
+                              template = "https://wiki.nixos.org/w/index.php";
+                              params = [
+                                {
+                                  name = "search";
+                                  value = "{searchTerms}";
+                                }
+                              ];
+                            }
+                          ];
+                          icon = icons.nix;
+                          definedAliases = ["nixwiki" "@nixwiki"];
+                        };
                         "Wolfram Alpha" = {
                           urls = [
                             {
