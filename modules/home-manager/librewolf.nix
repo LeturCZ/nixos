@@ -386,7 +386,7 @@ with lib; {
                               ];
                             }
                           ];
-                          icon = "https://alza.cz/favicon.ico";
+                          icon = icons.alza;
                           updateInterval = 24 * 60 * 60 * 1000;
                           definedAliases = ["alza" "@alza"];
                         };
