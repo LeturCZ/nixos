@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  system,
   ...
 }:
 with lib; {
@@ -26,9 +25,7 @@ with lib; {
                     type = types.listOf (
                       types.submoduleWith {
                         modules = toList (
-                          {wallpaper, ...}: let
-                            cfg = config.sourceFiles.${name};
-                          in {
+                          {wallpaper, ...}: {
                             options = {
                               path = mkOption {
                                 type = types.path;
