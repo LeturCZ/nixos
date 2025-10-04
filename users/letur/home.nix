@@ -230,27 +230,42 @@ in rec {
   wallpaper = {
     enable = true;
     sourceFiles = with miscFiles.images.wallpapers;
-    with inputs.self.packages.${system}.externalWallpapers.pixelart.Aduare;
+    with inputs.self.packages.${system}.externalWallpapers;
       (
-        [
-          Lumine_Falling_Midnight
-          Emily_Dream_in_a_Moment
-          Ephemeral
-          Stellarium
-        ]
-        |> builtins.map (path: {
-          type = "pixelart";
-          animated = true;
-          inherit path;
-        })
+        with pixelart.Aduare;
+          [
+            Lumine_Falling_Midnight
+            Emily_Dream_in_a_Moment
+            Ephemeral
+            Stellarium
+          ]
+          |> builtins.map (path: {
+            type = "pixelart";
+            animated = true;
+            inherit path;
+          })
       )
       ++ (
-        [yfdFDwe]
-        |> builtins.map (path: {
-          type = "regular";
-          animated = false;
-          inherit path;
-        })
+        with catalinobreja;
+        with owoinski;
+        with RicoDZ;
+          [
+            Red_Steel
+            Another_lit_Night
+            Unusual_Friendship_1
+            Unusual_Friendship_2
+            Away
+            Come_with_me
+            Inspire
+            Rain
+            FFXIII_Hanging_Edge
+            Rainy_Night
+          ]
+          |> builtins.map (path: {
+            type = "regular";
+            animated = false;
+            inherit path;
+          })
       );
   };
   programs = {
