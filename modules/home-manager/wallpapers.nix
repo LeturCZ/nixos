@@ -77,7 +77,10 @@ with lib; {
 
                   flagAnimated=(
                     ${cfg.wallpaper.sourceFiles
-                    |> builtins.map (value: "${value.animated |> builtins.toString}")
+                    |> builtins.map (value:
+                      if value.animated
+                      then "true"
+                      else "false")
                     |> lib.concatStringsSep "\n"}
                   )
 
@@ -89,9 +92,10 @@ with lib; {
                     selectedAnimation="''${flagAnimated[$selectedIndex]}"
 
                     if [[ $# -gt 0 ]] && [[ "$selectedType" != "$1" ]] \
-                    && ! { { [[ "$1" == "animated" ]] && [[ $selectedAnimation ]]; } \
-                    || { [[ "$1" == "static" ]] && [[ ! $selectedAnimation ]]; } }; then \
-                      selectedIndex=$((selectedIndex+1 % numFiles))
+                    && ! { { [[ "$1" == "animated" ]] && [[ $selectedAnimation == true ]]; } \
+                    || { [[ "$1" == "static" ]] && [[ $selectedAnimation == false ]]; } } then \
+
+                      selectedIndex=$((RANDOM % numFiles))
 
                       continue
 
@@ -103,7 +107,6 @@ with lib; {
 
 
                   selectedWallpaper=''${files[$selectedIndex]}
-                  selectedType=''${fileTypes[$selectedIndex]}
 
                   filter="Lanczos3"
 
